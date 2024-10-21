@@ -14,17 +14,56 @@
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
     </div>
-
     <!-- Cache at least one element using selectElementById-->
     <script>
         let navBar = document.getElementById("topnav");
         navBar.style.backgroundColor = "lightgrey";
         navBar.style.overflow = "hidden";
         navBar.style.textAlign = "center";
-        navBar.style.padding = "10px"
-        
+        navBar.style.padding = "10px ";
+        navBar.style.width = "100%";
     </script>
-    <div class="form">
+
+        <h1 > Register Form</h1>
+    
+   
+   <div class="container right-panel-active" id="myContainer">
+	<!-- Sign Up -->
+	<div class="container__form container--signup">
+		<form action="#" class="form" id="form1" onsubmit="handleSubmit()">
+			<h2 class="form__title">Sign Up</h2>
+			<input type="text" placeholder="User" class="input"  required/>
+			<input type="email" placeholder="Email" class="input" required />
+			<input type="password" placeholder="Password" class="input" required />
+			<button class="btn">Sign Up</button>
+		</form>
+	</div>
+
+	<!-- Sign In -->
+	<div class="container__form container--signin" onsubmit="handleSubmit()">
+		<form action="#" class="form" id="form2">
+			<h2 class="form__title">Sign In</h2>
+			<input type="email" placeholder="Email" class="input" required/>
+			<input type="password" placeholder="Password" class="input" required/>
+			<a href="#" class="link">Forgot your password?</a>
+			<button class="btn">Sign In</button>
+		</form>
+	</div>
+
+	<!-- Overlay -->
+	<div class="container__overlay">
+		<div class="overlay">
+			<div class="overlay__panel overlay--left">
+				<button class="btn" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay__panel overlay--right">
+				<button class="btn" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+    <!-- 
+ <div class="form">
         <h2> Registration Form </h2>
         <form>
             <label for="fName">First Name</label>
@@ -103,8 +142,44 @@
     </div>
 
         </form>
-    </div>
+
+    -->
+   
+    <script>
+        const signInBtn = document.getElementById("signIn");
+        const signUpBtn = document.getElementById("signUp");
+        const firstForm = document.getElementById("form1");
+        const secondForm = document.getElementById("form2");
+        //QuerySelector used here
+        const container = document.querySelector(".container");
+
+        signInBtn.addEventListener("click", () => {
+            container.classList.remove("right-panel-active");
+        });
+
+        
+signUpBtn.addEventListener("click", () => {
+	container.classList.add("right-panel-active");
+});
+
+fistForm.addEventListener("submit", (e) => e.preventDefault());
+secondForm.addEventListener("submit", (e) => e.preventDefault());
+
+//Removing the form after the submit is picked
+function handleSubmit(){
+    document.getElementById("form1").style.display ="none";
+    document.getElementById("form2").style.display ="none";
+    document.getElementById("myContainer").style.display ="none";
     
+    //Change content of new form
+    const h1Element = document.querySelector('h1');
+    h1Element.textContent="Welcome";
+    h1Element.style.textAlign= "center";
+}
+
+
+
+    </script>
     
 </body>
 </html>
