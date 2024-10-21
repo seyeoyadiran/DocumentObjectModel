@@ -63,15 +63,33 @@
         });
 
         
-signUpBtn.addEventListener("click", () => {
-	container.classList.add("right-panel-active");
-});
+        signUpBtn.addEventListener("click", () => {
+    	container.classList.add("right-panel-active");
+        });
+        
+        const imagesWithText = [
+            {
+            imageUrl: "./src/images/Batman.jpg",
+            textContent: "This is the text for image 1"
+        },
+            {
+                imageUrl: "./src/images/DarthVader.jpg",
+            textContent: "Some description for image 2"
+        }, 
+            {
+                imageUrl: "./src/images/Jason.jpg",
+            textContent: "Some description for image 2"
+        },
+  // Add more image-text pairs as needed
+];
 
 /*
     Removed this because you would need to submit it 2 times for it to show
 fistForm.addEventListener("submit", (e) => e.preventDefault());
 secondForm.addEventListener("submit", (e) => e.preventDefault());
 */
+
+
 //Removing the form after the submit is picked
 function handleSubmit(){
     document.getElementById("form1").style.display ="none";
@@ -82,6 +100,39 @@ function handleSubmit(){
     const h1Element = document.querySelector('h1');
     h1Element.textContent="Welcome";
     h1Element.style.textAlign= "center";
+
+
+    function displayImages() {
+        const container = document.createElement("div");
+        container.style.display = 'flex';
+
+        imagesWithText.forEach(item => {
+            const imgElement = document.createElement("img");
+            imgElement.src = item.imageUrl;
+            imgElement.alt = item.textContent; 
+            imgElement.style.height = "250px";
+            imgElement.style.width = "250px";
+            imgElement.style.margin = "15px";
+            
+        
+
+    const textElement = document.createElement("p");
+    textElement.textContent = item.textContent;
+
+
+    container.style.color = "black";
+    container.style.backgroundColor = "white";
+
+    container.appendChild(imgElement);
+    container.appendChild(textElement);
+  });
+document.body.appendChild(container);
+
+}
+
+// Call the function to display the images
+displayImages();
+
 }
     </script>
     
