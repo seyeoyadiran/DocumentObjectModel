@@ -1,0 +1,12 @@
+
+form{
+   background-color: lightgrey;
+    border: solid thick;
+    height: 50%;
+    width: 200px;
+    margin-top: 50px;
+    padding: 10px;
+    display:block;
+    text-align: left
+
+}
