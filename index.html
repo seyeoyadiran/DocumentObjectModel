@@ -84,9 +84,9 @@
 ];
 
 
-
-
-
+//using the bom 2 properties/ethods
+window.alert('Welcome to shareflix, a completly made up hardly working site that will be improved with time. The goal is to be able to see and share what you and youre friends are watching. Enjoy this concept ')
+window.confirm('Would you like to continue')
 
 //Removing the form element and container after the submit is picked
 function handleSubmit(){
@@ -171,13 +171,33 @@ movieGenre.appendChild(ul);
 
 //Using the parent-child sibling relationship to navigate between elements
 const h3Tag = document.createElement('h3');
-h3Tag.textContent = " Would you like to watch?";
+h3Tag.textContent = " Would you like to watch? " + ul.lastElementChild.innerHTML;
 movieGenre.append(h3Tag);
-movieGenre.append(ul.lastElementChild.innerHTML);
 
-//Using the BOM
+//Event Listners
+const btn = document.createElement("button");
+btn.textContent= "Confirm ";
+btn.style.padding = "10px";
+movieGenre.append(btn);
 
+btn.addEventListener("click", function() {
+    alert("Confirmed ");
+});
 
+const h3Tag2 = document.createElement('h3');
+h3Tag2.textContent = " No I do not want to watch the above option?";
+movieGenre.append(h3Tag2);
+
+//Event Listeners
+const btn2 = document.createElement("button");
+btn2.textContent= "Deny ";
+btn2.style.padding = "10px";
+movieGenre.append(btn2);
+
+btn2.addEventListener("click", function() {
+    alert("No I will not be watching this movie type");
+    h3Tag.textContent = "Would you like to watch? " + ul.firstElementChild.innerHTML;
+});
 
 }
     </script>
