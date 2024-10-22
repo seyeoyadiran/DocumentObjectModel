@@ -70,58 +70,72 @@
         const imagesWithText = [
             {
             imageUrl: "./src/images/Batman.jpg",
-            textContent: "This is the text for image 1"
+            textContent: " The Dark Knight Rises"
         },
             {
                 imageUrl: "./src/images/DarthVader.jpg",
-            textContent: "Some description for image 2"
+            textContent: " Star Wars"
         }, 
             {
                 imageUrl: "./src/images/Jason.jpg",
-            textContent: "Some description for image 2"
+            textContent: " Friday the 13th"
         },
   // Add more image-text pairs as needed
 ];
 
-/*
-    Removed this because you would need to submit it 2 times for it to show
-fistForm.addEventListener("submit", (e) => e.preventDefault());
-secondForm.addEventListener("submit", (e) => e.preventDefault());
-*/
 
 
-//Removing the form after the submit is picked
+
+
+
+//Removing the form element and container after the submit is picked
 function handleSubmit(){
     document.getElementById("form1").style.display ="none";
     document.getElementById("form2").style.display ="none";
     document.getElementById("myContainer").style.display ="none";
     
-    //Change content of new form
+    //Change content of textContent
     const h1Element = document.querySelector('h1');
     h1Element.textContent="Welcome";
     h1Element.style.textAlign= "center";
 
+    const movieTypes = document.createElement("div");
+movieTypes.style.backgroundColor = "white";
+movieTypes.style.height = "45%";
+movieTypes.style.width = "50%";
+movieTypes.style.textAlign = "center";
+movieTypes.textContent = " These are some of the movies your friends are watching"
+document.body.append(movieTypes);
 
     function displayImages() {
         const container = document.createElement("div");
         container.style.display = 'flex';
 
+        //Iterating over images to show and style movie content and appending it to the body
         imagesWithText.forEach(item => {
             const imgElement = document.createElement("img");
             imgElement.src = item.imageUrl;
             imgElement.alt = item.textContent; 
             imgElement.style.height = "250px";
             imgElement.style.width = "250px";
-            imgElement.style.margin = "15px";
+            imgElement.style.margin = "10px auto";
+            imgElement.style.padding = "10px ";
+            imgElement.style.display ="block";
+
             
         
 
     const textElement = document.createElement("p");
     textElement.textContent = item.textContent;
+    textElement.style.width = "250px";
+
+
 
 
     container.style.color = "black";
     container.style.backgroundColor = "white";
+    container.style.margin = " 10px";
+    container.style.padding = " 10px";
 
     container.appendChild(imgElement);
     container.appendChild(textElement);
@@ -133,8 +147,41 @@ document.body.appendChild(container);
 // Call the function to display the images
 displayImages();
 
+const movieGenre = document.createElement("div");
+movieGenre.style.backgroundColor = "white";
+movieGenre.style.height = "105%";
+movieGenre.style.width = "50%";
+movieGenre.style.textAlign = "center";
+movieGenre.textContent = " These are movie genres your friends are watching"
+document.body.append(movieGenre);
+
+
+/* Use the parent-child-sibling relationship to navigate between elements a */
+
+const ul = document.createElement('ul');
+
+const items = ['Action', 'Scary', 'Si-Fi'];
+items.forEach(itemText => {
+    const li = document.createElement('li');
+    li.textContent = itemText;
+    li.textAlign = "left";
+    ul.appendChild(li);
+});
+movieGenre.appendChild(ul);
+
+//Using the parent-child sibling relationship to navigate between elements
+const h3Tag = document.createElement('h3');
+h3Tag.textContent = " Would you like to watch?";
+movieGenre.append(h3Tag);
+movieGenre.append(ul.lastElementChild.innerHTML);
+
+//Using the BOM
+
+
+
 }
     </script>
     
 </body>
 </html>
+
